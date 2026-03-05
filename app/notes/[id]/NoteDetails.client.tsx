@@ -13,6 +13,7 @@ export default function NoteDetailsClient({ id }: { id: string }) {
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     enabled: !!id, 
+    refetchOnMount: false,
   });
 
   if (!id) return <p>Invalid note ID</p>;
@@ -33,4 +34,5 @@ export default function NoteDetailsClient({ id }: { id: string }) {
       </div>
     </div>
   );
+
 }
