@@ -40,12 +40,8 @@ export default function NoteList({ notes }: NoteListProps) {
             {/* <small className={css.date}>
               Created: {new Date(note.createdAt).toLocaleDateString()}
             </small> */}
-
-            {note.id ? (
-              <Link href={`/notes/${note.id}`} className={css.viewLink}>View details</Link>
-            ) : (
-              <span className={css.viewLink}>No ID</span>
-            )}
+            
+              <Link href={note.id ? `/notes/${note.id}` : "/notes/error"} className={css.viewLink}>View details</Link>
             <button
               className={css.button}
               onClick={() => note.id && setNoteToDelete(note)}
@@ -82,4 +78,5 @@ export default function NoteList({ notes }: NoteListProps) {
       )}
     </>
   );
+
 }
